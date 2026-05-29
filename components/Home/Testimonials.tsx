@@ -79,7 +79,7 @@ function TestimonialCard({
     <article
       onClick={() => handleMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 cursor-pointer overflow-hidden border p-6 transition-all duration-500 ease-in-out sm:p-8",
+        "absolute left-1/2 top-1/2 flex cursor-pointer flex-col overflow-hidden border p-6 transition-all duration-500 ease-in-out sm:p-8",
         isCenter
           ? "z-20 border-black/70 bg-primary-2 text-black shadow-[0_12px_0_4px_rgba(255,75,0,0.22),0_30px_90px_rgba(255,122,0,0.22)]"
           : "z-10 border-secondary-2/20 bg-bg-surface/90 text-white shadow-[0_18px_60px_rgba(0,0,0,0.42)] hover:border-secondary/55"
@@ -118,7 +118,7 @@ function TestimonialCard({
 
       <div
         className={cn(
-          "relative z-10 mb-5 grid h-14 w-14 place-items-center border font-heading text-lg font-black",
+          "relative z-10 mb-4 grid h-14 w-14 shrink-0 place-items-center border font-heading text-lg font-black sm:mb-5",
           isCenter
             ? "border-black/30 bg-black text-secondary"
             : "border-secondary/30 bg-black text-white"
@@ -134,14 +134,14 @@ function TestimonialCard({
 
       <Quote
         className={cn(
-          "relative z-10 mb-3 h-6 w-6",
+          "relative z-10 mb-2 h-5 w-5 shrink-0 sm:mb-3 sm:h-6 sm:w-6",
           isCenter ? "text-black/55" : "text-secondary"
         )}
       />
 
       <h3
         className={cn(
-          "relative z-10 font-heading text-lg font-bold leading-snug sm:text-xl",
+          "relative z-10 font-heading text-[16px] font-bold leading-[1.28] sm:text-xl sm:leading-snug",
           isCenter ? "text-black" : "text-white"
         )}
       >
@@ -150,12 +150,12 @@ function TestimonialCard({
 
       <p
         className={cn(
-          "absolute bottom-6 left-6 right-6 z-10 text-sm font-semibold italic sm:bottom-8 sm:left-8 sm:right-8",
+          "relative z-10 mt-auto pt-4 text-[13px] font-semibold italic leading-tight sm:pt-5 sm:text-sm",
           isCenter ? "text-black/72" : "text-white/58"
         )}
       >
         - {testimonial.by}
-        <span className="mt-1 block text-xs not-italic">
+        <span className="mt-1 block text-[11px] not-italic sm:text-xs">
           {testimonial.service}
         </span>
       </p>
@@ -193,7 +193,11 @@ export default function Testimonials() {
 
   useEffect(() => {
     const updateSize = () => {
-      setCardSize(window.matchMedia("(min-width: 640px)").matches ? 365 : 290);
+      setCardSize(
+        window.matchMedia("(min-width: 640px)").matches
+          ? 365
+          : Math.max(290, Math.min(340, window.innerWidth - 48))
+      );
     };
 
     updateSize();
