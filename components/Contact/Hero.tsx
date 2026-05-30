@@ -9,7 +9,7 @@ interface HeroProps {
 
 function Hero({ badge, title, highlight, description }: HeroProps) {
   return (
-    <section className="hero-bg relative isolate grid min-h-[90vh] place-items-center overflow-hidden bg-black py-10">
+    <section className="hero-bg relative isolate grid md:min-h-[90vh] min-h-[65vh] place-items-center overflow-hidden bg-black py-10">
       <div className="pointer-events-none absolute inset-0 z-0 opacity-100 md:opacity-70">
         <DotField
           dotRadius={1.8}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { TbMenuDeep } from "react-icons/tb";
 import Link from "next/link";
@@ -82,11 +83,16 @@ function NavLink({
 
 export default function Header() {
   const pathname = usePathname();
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname === href || pathname.startsWith(`${href}/`);
   };
+
+  useEffect(() => {
+    setIsSheetOpen(false);
+  }, [pathname]);
 
   return (
     <header className="w-full">
@@ -104,7 +110,7 @@ export default function Header() {
             <CtaButton />
           </div>
 
-          <Sheet>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <button
                 type="button"

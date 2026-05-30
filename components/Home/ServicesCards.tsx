@@ -59,7 +59,7 @@ const FEATURES_DATA = [
 
 const ServicesCards = () => {
   return (
-    <section id="features" className="w-full bg-transparent pb-[20vh]">
+    <section id="features" className="w-full bg-transparent pb-[7vh]">
       {FEATURES_DATA.map((feature, i) => {
         const shrink = i * 10;
 

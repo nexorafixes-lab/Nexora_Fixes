@@ -46,6 +46,7 @@ function Hero() {
           gradientFrom="rgba(255, 75, 0, 0.32)"
           gradientTo="rgba(255, 176, 0, 0.46)"
           glowColor="rgba(255, 106, 0, 0.78)"
+          mobileFallback={false}
         />
       </div>
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_62%,rgba(0,0,0,0.4)_82%,rgba(0,0,0,0.84)_100%)] md:bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_42%,rgba(0,0,0,0.45)_70%,rgba(0,0,0,0.92)_100%)]" />
