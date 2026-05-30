@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -24,7 +25,7 @@ const FEATURES_DATA = [
   },
   {
     badge: "Scroll-stopping creatives",
-    heading: "Creative Design",
+    heading: "Creatives Design",
     para: "Your ads only work when people stop, understand, and act. Nexora designs hooks, static creatives, carousels, and campaign visuals that make offers easier to trust and easier to click.",
     cta: "Explore Creatives",
     cta_link: "/services/creative-design",
@@ -65,7 +66,7 @@ const ServicesCards = () => {
         return (
           <div
             key={feature.heading}
-            className="card-container max-sm:-mb-[100px] sticky md:h-screen h-[60vh] flex items-center justify-center px-6 w-full"
+            className="card-container sticky flex min-h-[100svh] w-full items-center justify-center px-4 sm:px-6 md:h-screen"
             style={{
               top: "clamp(10px, 2vh, 120px)",
               zIndex: i + 1,
@@ -74,17 +75,17 @@ const ServicesCards = () => {
             <div
               className={cn(
                 "feature-card",
-                "w-full max-w-6xl md:h-[460px] 2xl:h-[550px] h-[490px]",
+                "w-full max-w-6xl md:h-[calc(var(--service-card-height)-var(--service-card-shrink))]",
                 "flex flex-col md:flex-row items-center md:gap-12 gap-3",
-                "p-8 md:p-16",
+                "p-7 sm:p-8 md:p-16",
                 "rounded-2xl border border-secondary-2/20",
                 "bg-black/20 backdrop-blur-2xl",
                 "overflow-hidden"
               )}
               style={{
+                "--service-card-shrink": `${shrink}px`,
                 maxWidth: `calc(72rem - ${shrink}px)`,
-                height: `calc(var(--service-card-height) - ${shrink}px)`,
-              }}
+              } as CSSProperties}
             >
               {/* Left */}
               <div className="w-full md:w-1/2 flex flex-col md:gap-6 gap-3">
@@ -109,7 +110,7 @@ const ServicesCards = () => {
               </div>
 
               {/* Right */}
-              <div className="w-full md:w-1/2 h-[280px] sm:h-[300px] md:h-full max-h-[350px] max-sm:mt-4">
+              <div className="w-full md:w-1/2 h-[220px] sm:h-[300px] md:h-full max-h-[350px] max-sm:mt-4">
                 <div className="w-full h-full md:min-h-[320px] min-h-[150px] rounded-[8px] bg-[#0f1117] border border-primary-1/10 overflow-hidden relative">
                   <Image
                     src={feature.image}

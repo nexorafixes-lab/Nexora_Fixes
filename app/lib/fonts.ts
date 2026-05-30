@@ -1,4 +1,4 @@
-import { Outfit, DM_Sans, DM_Mono } from "next/font/google";
+import { Outfit, Marcellus, DM_Sans, DM_Mono } from "next/font/google";
 
 export const body_font = DM_Sans({
   variable: "--font-body",
@@ -12,8 +12,8 @@ export const dm_mono = DM_Mono({
   weight: ["400", "500"],
 });
 
-export const heading_font = Outfit({
+export const heading_font = Marcellus({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400"],
 });

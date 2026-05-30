@@ -59,7 +59,7 @@ function Hero() {
             <span className="capitalize">For brands ready to scale</span>
           </div>
 
-          <h1 className="display-h1 font-semibold! leading-[0.96] tracking-normal text-white">
+          <h1 className="display-h1 fade-in-top font-semibold! leading-[0.96] tracking-normal text-white">
             From{" "}
             <span className="nexora-gradient-text">
               Clicks

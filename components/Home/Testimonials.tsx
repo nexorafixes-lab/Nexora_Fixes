@@ -82,7 +82,7 @@ function TestimonialCard({
         "absolute left-1/2 top-1/2 flex cursor-pointer flex-col overflow-hidden border p-6 transition-all duration-500 ease-in-out sm:p-8",
         isCenter
           ? "z-20 border-black/70 bg-primary-2 text-black shadow-[0_12px_0_4px_rgba(255,75,0,0.22),0_30px_90px_rgba(255,122,0,0.22)]"
-          : "z-10 border-secondary-2/20 bg-bg-surface/90 text-white shadow-[0_18px_60px_rgba(0,0,0,0.42)] hover:border-secondary/55"
+          : "z-10 border-secondary-2/20 bg-bg-surface/90 text-white  shadow-[0_18px_60px_rgba(0,0,0,0.42)] hover:border-secondary/55"
       )}
       style={{
         width: cardSize,
@@ -142,7 +142,7 @@ function TestimonialCard({
       <h3
         className={cn(
           "relative z-10 font-heading text-[16px] font-bold leading-[1.28] sm:text-xl sm:leading-snug",
-          isCenter ? "text-black" : "text-white"
+          isCenter ? "text-black" : "text-white font-thin!"
         )}
       >
         &quot;{testimonial.testimonial}&quot;

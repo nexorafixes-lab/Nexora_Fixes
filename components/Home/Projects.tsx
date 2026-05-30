@@ -92,8 +92,8 @@ function ProjectCard({
         sizes="(max-width: 640px) 320px, (max-width: 1024px) 380px, 430px"
         priority={priority}
       />
-      <div className="absolute inset-0 bg-black/18" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 via-45% to-transparent" />
+      <div className="hidden  md:block absolute inset-0 bg-black/18" />
+      <div className=" absolute inset-0 bg-gradient-to-t from-black via-black/40 via-45% to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-2/4 bg-[linear-gradient(to_top,rgba(0,0,0,0.98),rgba(0,0,0,0.78)_44%,rgba(0,0,0,0.03)_100%)]" />
 
       <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
@@ -104,7 +104,7 @@ function ProjectCard({
               href={project.href}
               target="_blank"
               rel="noreferrer"
-              className="text-2xl font-black leading-tight text-white transition hover:text-secondary md:text-3xl"
+              className="display-h5 font-black leading-tight text-white transition hover:text-secondary "
             >
               {project.title}
             </Link>
@@ -147,8 +147,8 @@ export default function Projects() {
         </div>
 
         <div className="relative -mx-4 overflow-hidden py-4 sm:-mx-6 lg:-mx-10">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-20 bg-gradient-to-r from-black to-transparent sm:w-28 lg:w-40" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-20 bg-gradient-to-l from-black to-transparent sm:w-28 lg:w-40" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-10 md:w-20 bg-gradient-to-r from-black to-transparent sm:w-28 lg:w-40" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-10 md:w-20 bg-gradient-to-l from-black to-transparent sm:w-28 lg:w-40" />
           <div className="flex flex-col gap-1 lg:gap-2">
             {projectRows.map((row, rowIndex) => (
               <Marquee

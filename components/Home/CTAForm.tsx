@@ -14,7 +14,7 @@ const services = [
   "Software Development",
   "Shopify Store",
   "WordPress Website",
-  "Creative Design",
+  "Creatives Design",
 ];
 
 const trustPoints = [
@@ -38,9 +38,8 @@ export default function CTAForm() {
 
   return (
     <section id="contact" className="relative overflow-hidden bg-black py-12 md:py-16">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,154,0,0.09)_1px,transparent_1px),linear-gradient(90deg,rgba(255,154,0,0.06)_1px,transparent_1px)] bg-[size:22px_22px]" />
       <div className="container relative z-10">
-        <div className="relative overflow-hidden rounded-lg border border-secondary-2/20 bg-[#0b121a] shadow-[0_24px_100px_rgba(0,0,0,0.56)]">
+        <div className="relative overflow-hidden rounded-lg border border-secondary-2/20 bg-bg-elevated/50 shadow-[0_24px_100px_rgba(0,0,0,0.56)]">
           <div className="pointer-events-none absolute -bottom-28 -left-20 h-[630px] w-[630px] rounded-full bg-[radial-gradient(circle,rgba(255,176,0,0.45),rgba(255,122,0,0.18)_42%,transparent_70%)] blur-2xl" />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,176,0,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,176,0,0.025)_1px,transparent_1px)] bg-[size:18px_18px]" />
 
@@ -63,11 +62,11 @@ export default function CTAForm() {
 
               <div className="mt-10 flex flex-1 flex-col justify-end gap-4 lg:mt-0">
                 <a
-                  href="mailto:hello@nexorafixes.com"
-                  className="inline-flex w-fit items-center gap-2 border-b border-secondary/65 pb-1 text-sm font-semibold text-white transition hover:text-secondary"
+                  href="mailto:nexorafixes@gmail.com"
+                  className="inline-flex w-fit items-center gap-2 border-b border-secondary/65 pb-1 text-sm font-medium text-white transition hover:text-secondary"
                 >
                   <Mail className="h-4 w-4 text-secondary display-p3" />
-                  hello@nexorafixes.com
+                  nexorafixes@gmail.com
                 </a>
 
                 <div>
@@ -102,10 +101,10 @@ export default function CTAForm() {
                         onClick={() => toggleService(service)}
                         aria-pressed={isSelected}
                         className={cn(
-                          "rounded-full border px-3 py-1.5 text-xs font-semibold transition",
+                          "rounded-full border px-4 py-1.5 text-xs font-semibold transition",
                           isSelected
-                            ? "border-primary-2 bg-primary-2 text-black"
-                            : "border-white/14 bg-black/20 text-white hover:border-secondary/60"
+                            ? "border-primary-2 bg-gradient-to-r from-primary-2 to-secondary-2 text-black"
+                            : "border-primary-2/30 bg-black/20 text-white hover:border-secondary/60"
                         )}
                       >
                         {service}
@@ -123,17 +122,17 @@ export default function CTAForm() {
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <Label htmlFor="name" className="mb-2 block">Name*</Label>
-                  <Input id="name" name="name" autoComplete="name" placeholder="Your name" required />
+                  <Input id="name" name="name" autoComplete="name" placeholder="Your name" required  className="border-primary-2/30"/>
                 </div>
                 <div>
                   <Label htmlFor="email" className="mb-2 block">Email*</Label>
-                  <Input id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required />
+                  <Input id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required className="border-primary-2/30"/>
                 </div>
               </div>
 
               <div>
                 <Label htmlFor="phone" className="mb-2 block">Phone number*</Label>
-                <Input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="+92 300 0000000" required />
+                <Input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="+92 300 0000000" required className="border-primary-2/30"/>
               </div>
 
               <div>
@@ -141,6 +140,7 @@ export default function CTAForm() {
                 <Textarea
                   id="details"
                   name="details"
+                  className="border-primary-2/30"
                   placeholder="Tell us what you need built, improved, or scaled."
                 />
               </div>

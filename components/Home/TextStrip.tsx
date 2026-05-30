@@ -48,7 +48,7 @@ function StripContent() {
 
 export default function TextStrip() {
   return (
-    <section className="relative mb-20 lg:-mt-8 mt-10 overflow-hidden bg-black py-2 ">
+    <section className="relative mb-20 lg:-mt-8 -mt-10 overflow-hidden bg-black py-2 ">
       <div className="relative overflow-hidden bg-gradient-to-r from-primary-1 via-primary-2 to-secondary py-10 shadow-[0_0_80px_rgba(255,122,0,0.18)] md:py-10">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-black/35 to-transparent md:w-40" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-black/25 to-transparent md:w-40" />
