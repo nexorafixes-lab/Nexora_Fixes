@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { TbMenuDeep } from "react-icons/tb";
 import Link from "next/link";
@@ -15,6 +15,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import CalendlyPopup from "@/components/Layout/CalendlyPopup";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -24,10 +25,17 @@ const navItems = [
   { label: "Contact Us", href: "/contact" },
 ];
 
-export function CtaButton({ className }: { className?: string }) {
+export function CtaButton({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick?: () => void;
+}) {
   return (
-    <Link
-      href="/contact"
+    <button
+      type="button"
+      onClick={onClick}
       className={cn(
         "relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg p-[1.5px] transition-transform hover:scale-105 active:scale-95",
         className
@@ -37,7 +45,7 @@ export function CtaButton({ className }: { className?: string }) {
       <span className="relative flex h-full w-full items-center justify-center rounded-lg bg-background px-6 text-sm font-medium text-white transition-colors hover:bg-transparent">
         Book a Free Consultation
       </span>
-    </Link>
+    </button>
   );
 }
 
@@ -83,16 +91,17 @@ function NavLink({
 
 export default function Header() {
   const pathname = usePathname();
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [sheetState, setSheetState] = useState({
+    pathname,
+    open: false,
+  });
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const isSheetOpen = sheetState.pathname === pathname && sheetState.open;
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname === href || pathname.startsWith(`${href}/`);
   };
-
-  useEffect(() => {
-    setIsSheetOpen(false);
-  }, [pathname]);
 
   return (
     <header className="w-full">
@@ -107,10 +116,13 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:block">
-            <CtaButton />
+            <CtaButton onClick={() => setIsCalendlyOpen(true)} />
           </div>
 
-          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+          <Sheet
+            open={isSheetOpen}
+            onOpenChange={(open) => setSheetState({ pathname, open })}
+          >
             <SheetTrigger asChild>
               <button
                 type="button"
@@ -139,13 +151,21 @@ export default function Header() {
 
               <div className="mt-6">
                 <SheetClose asChild>
-                  <CtaButton className="w-full" />
+                  <CtaButton
+                    className="w-full"
+                    onClick={() => setIsCalendlyOpen(true)}
+                  />
                 </SheetClose>
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
+
+      <CalendlyPopup
+        open={isCalendlyOpen}
+        onClose={() => setIsCalendlyOpen(false)}
+      />
     </header>
   );
 }

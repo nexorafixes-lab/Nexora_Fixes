@@ -1,89 +1,34 @@
-import {
-  TbBrain,
-  TbBriefcaseFilled,
-  TbChartAreaLineFilled,
-  TbCoinRupeeFilled,
-  TbDiamondsFilled,
-  TbPackage,
-  TbReceiptRupeeFilled,
-  TbScale,
-  TbShoppingCartFilled,
-  TbTruckDelivery,
-} from "react-icons/tb";
+import Image from "next/image";
 
 import { Marquee } from "@/components/ui/marquee";
 
-const clientLogos = [
-  {
-    name: "GoldStone",
-    icon: TbDiamondsFilled,
-  },
-  {
-    name: "YSM Accountants",
-    icon: TbReceiptRupeeFilled,
-  },
-  {
-    name: "Orient AI",
-    icon: TbBrain,
-  },
-  {
-    name: "LedgerPeak",
-    icon: TbChartAreaLineFilled,
-  },
-  {
-    name: "MiraCart",
-    icon: TbShoppingCartFilled,
-  },
-  {
-    name: "Harbor & Co.",
-    icon: TbBriefcaseFilled,
-  },
-  {
-    name: "RupeeNest",
-    icon: TbCoinRupeeFilled,
-  },
-  {
-    name: "Urban Loom",
-    icon: TbPackage,
-  },
-  {
-    name: "NexaLedger",
-    icon: TbScale,
-  },
-  {
-    name: "ParcelMint",
-    icon: TbTruckDelivery,
-  },
-];
+const clientLogos = Array.from({ length: 8 }, (_, index) => ({
+  name: `Company ${index + 1}`,
+  src: `/assets/companies/company_${index + 1}.png`,
+}));
 
-function ClientLogo({
-  client,
-}: {
-  client: (typeof clientLogos)[number];
-}) {
-  const Icon = client.icon;
-
+function ClientLogo({ client }: { client: (typeof clientLogos)[number] }) {
   return (
-    <div className="group/logo mx-4 inline-flex h-20 min-w-max cursor-pointer items-center gap-1 rounded-full px-6 text-white/45 transition duration-300 hover:text-white">
-      <Icon className="h-7 w-7 shrink-0 transition duration-300 group-hover/logo:text-secondary" />
-      <span className="font-sans text-[22px] font-semibold leading-tight tracking-wide transition duration-300 group-hover/logo:bg-gradient-to-r group-hover/logo:from-primary-2 group-hover/logo:to-secondary-1 group-hover/logo:bg-clip-text group-hover/logo:text-transparent">
-        {client.name}
-      </span>
+    <div className="group/logo mx-5 inline-flex h-20 w-[212px] shrink-0 cursor-pointer items-center justify-center rounded-xl px-4 transition duration-300 hover:bg-white/[0.03] sm:h-24 sm:w-[254px]">
+      <Image
+        src={client.src}
+        alt={`${client.name} logo`}
+        width={954}
+        height={360}
+        className="h-auto w-full object-contain opacity-65 grayscale transition duration-500 group-hover/logo:opacity-100 group-hover/logo:grayscale-0"
+      />
     </div>
   );
 }
 
 export default function SlidingLogos() {
   return (
-    <section className="relative overflow-hidden bg-black pb-14">
-      <div className="pointer-events-none absolute inset-0 " />
+    <section className="relative overflow-hidden bg-black py-6 pb-22">
       <div className="container relative">
-        
-
         <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <Marquee pauseOnHover repeat={2} className="[--duration:32s]">
             {clientLogos.map((client) => (
-              <ClientLogo key={client.name} client={client} />
+              <ClientLogo key={client.src} client={client} />
             ))}
           </Marquee>
         </div>

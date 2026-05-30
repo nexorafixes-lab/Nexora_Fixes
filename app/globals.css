@@ -283,7 +283,7 @@
   .nexora-gradient-text {
     background: linear-gradient(
       90deg,
-      var(--color-secondary-2) 0%,
+      var(--color-primary-2) 0%,
       var(--color-primary-1) 100%
     );
     -webkit-background-clip: text;

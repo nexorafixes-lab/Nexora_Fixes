@@ -85,7 +85,7 @@ function Hero() {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-tertiary via-primary-2 to-secondary" />
               <span className="relative flex h-full w-full items-center gap-3 rounded-full bg-background py-1 pl-7 pr-2 text-base font-semibold text-white transition-colors group-hover:bg-transparent">
-                Get A Free Consultation
+                Get Your Free Quote
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-background transition ">
                   <TbArrowUpRight className="h-6 w-6" />
                 </span>

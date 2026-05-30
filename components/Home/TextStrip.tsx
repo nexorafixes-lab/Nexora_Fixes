@@ -1,5 +1,7 @@
 "use client";
 
+import { Marquee } from "@/components/ui/marquee";
+
 const words = ["Marketing", "Revenue", "Leads", "Branding", "Sales", "Growth", "Conversion"];
 
 function Separator() {
@@ -53,18 +55,9 @@ export default function TextStrip() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-black/35 to-transparent md:w-40" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-black/25 to-transparent md:w-40" />
 
-        <div
-          className="flex w-max animate-marquee items-center"
-          style={
-            {
-              "--duration": "82s",
-              "--gap": "0px",
-            } as React.CSSProperties
-          }
-        >
+        <Marquee repeat={3} className="p-0 [--duration:82s] [--gap:0px]">
           <StripContent />
-          <StripContent />
-        </div>
+        </Marquee>
       </div>
     </section>
   );

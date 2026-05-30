@@ -1,10 +1,13 @@
 import {
   Brush,
-  ChartNoAxesCombined,
+  Calculator,
   Code2,
+  Lightbulb,
   Megaphone,
   Search,
+  Share2,
   ShoppingCart,
+  Smartphone,
 } from "lucide-react";
 import React from "react";
 
@@ -12,40 +15,58 @@ import { cn } from "@/lib/utils";
 
 const services = [
   {
-    title: "Meta Ads",
+    title: "Digital Marketing",
     icon: Megaphone,
     description:
-      "High-intent campaigns built around offers, audiences, creative angles, retargeting, and reporting.",
+      "Meta Ads, Instagram Ads, and TikTok Ads built around offers, audiences, creative angles, retargeting, and reporting.",
   },
   {
-    title: "Google Ads",
-    icon: Search,
-    description:
-      "Search campaigns shaped around buyer intent, landing-page alignment, tracking, and budget control.",
-  },
-  {
-    title: "Creatives Design",
-    icon: Brush,
-    description:
-      "Scroll-stopping visuals, hooks, and campaign assets that make offers easier to trust and click.",
-  },
-  {
-    title: "Custom Software",
-    icon: Code2,
-    description:
-      "Dashboards, portals, booking flows, CRMs, and internal tools built around your real workflows.",
-  },
-  {
-    title: "Shopify Store",
+    title: "Website & E-Commerce",
     icon: ShoppingCart,
     description:
-      "Premium ecommerce stores with better product flow, trust signals, checkout clarity, and tracking.",
+      "Conversion-focused websites and ecommerce stores designed to load fast, build trust, and guide visitors toward action.",
   },
   {
-    title: "WordPress Websites",
-    icon: ChartNoAxesCombined,
+    title: "Graphic Design & Branding",
+    icon: Brush,
     description:
-      "Fast business websites structured around credibility, conversion, and clear visitor actions.",
+      "Logos, brand systems, social creatives, campaign visuals, and design assets that make your business sharper and easier to remember.",
+  },
+  {
+    title: "Social Media Management",
+    icon: Share2,
+    description:
+      "Content planning, visuals, captions, scheduling, and performance review to keep your social channels active and aligned.",
+  },
+  {
+    title: "SEO & Organic Growth",
+    icon: Search,
+    description:
+      "Search visibility improved through SEO planning, on-page optimization, technical structure, and growth-focused content.",
+  },
+  {
+    title: "Software Development",
+    icon: Code2,
+    description:
+      "Dashboards, portals, CRMs, booking flows, and internal tools built around your real business workflows.",
+  },
+  {
+    title: "Accounts & Finance",
+    icon: Calculator,
+    description:
+      "Cleaner financial workflows, reporting structures, bookkeeping support, and account systems that make decisions easier.",
+  },
+  {
+    title: "App Development",
+    icon: Smartphone,
+    description:
+      "Mobile and web apps shaped around usability, performance, and the features your customers or team actually need.",
+  },
+  {
+    title: "Consultancy Services",
+    icon: Lightbulb,
+    description:
+      "Strategic guidance for campaigns, funnels, platforms, systems, and growth decisions before you invest time or budget.",
   },
 ];
 

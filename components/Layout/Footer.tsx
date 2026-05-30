@@ -4,6 +4,7 @@ import {
   TbBrandFacebook,
   TbBrandInstagram,
   TbBrandLinkedin,
+  TbBrandWhatsapp,
 } from "react-icons/tb";
 
 const footerLinks = [
@@ -14,9 +15,26 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { label: "LinkedIn", href: "#", icon: TbBrandLinkedin },
-  { label: "Facebook", href: "#", icon: TbBrandFacebook },
-  { label: "Instagram", href: "#", icon: TbBrandInstagram },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/nexorafixes?igsh=ODd1Y21xa3IwcXBx",
+    icon: TbBrandInstagram,
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1EySksKaZa/",
+    icon: TbBrandFacebook,
+  },
+  {
+    label: "WhatsApp",
+    href: "https://wa.link/ji53ly",
+    icon: TbBrandWhatsapp,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/nexorafixes",
+    icon: TbBrandLinkedin,
+  },
 ];
 
 export default function Footer() {
@@ -71,6 +89,8 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="grid place-items-center p-1 rounded-full text-primary-2  transition hover:bg-primary-2 hover:text-black"
                 >
                   <Icon className="" size={25} strokeWidth={1} />

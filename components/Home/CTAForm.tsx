@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CalendarCheck, CheckCircle2, Mail } from "lucide-react";
 
+import CalendlyPopup from "@/components/Layout/CalendlyPopup";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -27,6 +28,7 @@ export default function CTAForm() {
   const [selectedServices, setSelectedServices] = useState<string[]>([
     services[0],
   ]);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const toggleService = (service: string) => {
     setSelectedServices((currentServices) =>
@@ -73,13 +75,14 @@ export default function CTAForm() {
                   <p className="max-w-[260px] display-p3 leading-7 text-white/78">
                     Always busy and want to book an exact time to call?
                   </p>
-                  <a
-                    href="#contact"
+                  <button
+                    type="button"
+                    onClick={() => setIsCalendlyOpen(true)}
                     className="mt-3 inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-white/12 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-secondary hover:text-black"
                   >
                     <CalendarCheck className="h-4 w-4 diplay-p3!" />
                     Book a free call
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -89,7 +92,7 @@ export default function CTAForm() {
               onSubmit={(event) => event.preventDefault()}
             >
               <div>
-                <Label className="mb-2 block">Service</Label>
+                <Label className="mb-2 block">Services</Label>
                 <div className="flex flex-wrap gap-2">
                   {services.map((service) => {
                     const isSelected = selectedServices.includes(service);
@@ -155,6 +158,11 @@ export default function CTAForm() {
           </div>
         </div>
       </div>
+
+      <CalendlyPopup
+        open={isCalendlyOpen}
+        onClose={() => setIsCalendlyOpen(false)}
+      />
     </section>
   );
 }
