@@ -180,17 +180,7 @@ export default function ServicesProcess() {
 
       <div className="container relative z-10">
         <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary-1/20 bg-black/20 px-4 py-2 text-sm font-semibold text-white/90 shadow-inner shadow-secondary/30 backdrop-blur-sm">
-            <span>Everything We Handle</span>
-          </div>
-          <h2 className="display-h2 text-white">
-            We Handle the Work.{" "} <br className="hidden md:block" />
-            <span className="nexora-gradient-text">You Reap the Rewards</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl display-p2 text-white/62">
-            Choose one service or connect them into a complete path from
-            attention to conversion, revenue, and repeatable scale.
-          </p>
+        
         </div>
 
         <div className="mx-auto grid max-w-6xl grid-cols-1 divide-y divide-dashed divide-secondary/18 overflow-hidden border border-dashed border-secondary/20 bg-white/[0.02] backdrop-blur-xl sm:grid-cols-2 sm:divide-x md:grid-cols-3">

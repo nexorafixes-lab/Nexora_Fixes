@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TbArrowUpRight } from "react-icons/tb";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -220,13 +221,13 @@ export default function ExperienceSection() {
               ))}
             </div>
 
-            <a
-              href="#services"
+            <Link
+              href="/services"
               className="mt-8 inline-flex w-fit items-center gap-2 rounded-full border-2 border-black px-4 py-2 text-xs font-bold uppercase tracking-wide text-black transition hover:bg-background hover:text-white"
             >
               Our services
               <TbArrowUpRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

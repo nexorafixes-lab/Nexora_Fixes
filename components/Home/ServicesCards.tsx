@@ -29,7 +29,7 @@ const FEATURES_DATA = [
     heading: "Graphic Design & Branding Services",
     para: "Your brand needs to be easy to notice, trust, and remember. Nexora designs logos, brand systems, social creatives, campaign visuals, and presentation assets that make your business look sharper.",
     cta: "Explore Branding",
-    cta_link: "/services/graphic-design-branding",
+    cta_link: "/services/graphic-design-and-branding",
     image: "/assets/service__3.png",
   },
  {
@@ -37,7 +37,7 @@ const FEATURES_DATA = [
     heading: "Website & E-Commerce",
     para: "We build business websites and ecommerce stores that feel premium, load fast, and guide visitors toward action. From landing pages to product flow, every screen is shaped around clarity and conversion.",
     cta: "Explore Websites",
-    cta_link: "/services/website-ecommerce",
+    cta_link: "/services/website-and-ecommerce",
     image: "/assets/service__8.png",
   },
   {
@@ -45,7 +45,7 @@ const FEATURES_DATA = [
     heading: "SEO & Organic Growth",
     para: "Organic growth compounds when your content, structure, and technical foundation work together. Nexora improves search visibility through SEO planning, on-page optimization, and growth-focused content.",
     cta: "Explore SEO",
-    cta_link: "/services/seo-organic-growth",
+    cta_link: "/services/seo",
     image: "/assets/service_5.png",
   },
   {
@@ -53,7 +53,7 @@ const FEATURES_DATA = [
     heading: "Software & App Development",
     para: "We create custom applications for teams that need more than templates. CRMs, dashboards, portals, booking flows, and internal tools are built around the workflows that move revenue.",
     cta: "Explore Development",
-    cta_link: "/services/software-app-development",
+    cta_link: "/services/software-development",
     image: "/assets/service_6.png",
   },
   {
@@ -61,7 +61,7 @@ const FEATURES_DATA = [
     heading: "Accounts & Finance",
     para: "We support businesses with cleaner financial workflows, reporting structures, bookkeeping support, and account systems that make decisions easier to track, understand, and improve.",
     cta: "Explore Finance",
-    cta_link: "/services/accounts-finance",
+    cta_link: "/services/accounts-and-finance",
     image: "/assets/service__7.png",
   },
 ];
