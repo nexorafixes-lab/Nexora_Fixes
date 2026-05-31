@@ -1,10 +1,10 @@
 // app/lib/config.ts
 import type { Metadata } from "next";
 
-export const BASE_URL = "https://nexorafixes.vercel.app";
+export const BASE_URL = "https://nexorafixes.com";
 
 export const CALENDLY_URL =
-  "https://calendly.com/nexorafixes";
+  "https://calendly.com/nexorafixes/30min";
 
 export const seoMetadata: Metadata = {
   metadataBase: new URL(BASE_URL),

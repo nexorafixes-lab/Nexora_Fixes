@@ -31,7 +31,7 @@ export default function CalendlyPopup({ open, onClose }: CalendlyPopupProps) {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] grid place-items-center overflow-y-auto bg-black/8 px-4 py-6 backdrop-blur-sm">
+    <div className="fixed inset-0 z-1000 grid place-items-center overflow-y-auto bg-black/8 px-4 py-6 backdrop-blur-sm">
       <button
         type="button"
         aria-label="Close Calendly popup"
@@ -77,9 +77,10 @@ export default function CalendlyPopup({ open, onClose }: CalendlyPopupProps) {
             pageSettings={{
               backgroundColor: "#0f0a00",
               hideEventTypeDetails: false,
+              hideLandingPageDetails: true,
               hideGdprBanner: true,
               primaryColor: "#ffb000",
-              textColor: "#ffffff",
+              textColor: "#b8aaa1",
             }}
           />
         </div>
