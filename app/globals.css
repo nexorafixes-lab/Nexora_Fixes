@@ -568,3 +568,14 @@
     }
   }
 }
+
+
+::selection {
+  background: var(--color-primary-2);
+  color: #000;
+}
+
+::-moz-selection {
+  background: var(--color-primary-2);
+  color: #000;
+}

@@ -4,26 +4,35 @@ import { TbBrandLinkedin } from "react-icons/tb";
 
 const teamMembers = [
   {
-    name: "Huziafa Maqsood",
+    name: "Huziafa <br/> Maqsood",
+    plainName: "Huziafa Maqsood",
     role: "Leading Marketer & Strategist",
     avatar: "/assets/person_1.png",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/saith-huzaifa-0361a52b4/",
   },
   {
-    name: "Shaheer Sheikh",
-    role: "CEO Nexora",
+    name: "Shaheer <br/> Sheikh",
+    plainName: "Shaheer Sheikh",
+    role: "Founder & CEO Nexora Fixes",
     avatar: "/assets/person_2.png",
     linkedin: "#",
     featured: true,
   },
   {
-    name: "Muhammad Ahmad",
+    name: "Muhammad <br/> Ahmad",
+    plainName: "Muhammad Ahmad",
     role: "Leading Software Engineer",
     avatar: "/assets/person_3.png",
+    linkedin: "https://www.linkedin.com/in/muhammad-ahmad13/",
+  },
+  {
+    name: "Abdul <br/> Raheem",
+    plainName: "Abdul Raheem",
+    role: "Visual Designer & Brand Artist",
+    avatar: "/assets/person__4.png",
     linkedin: "#",
   },
 ];
-
 export default function OurTeam() {
   return (
     <section className="relative overflow-hidden bg-black py-10">
@@ -45,20 +54,20 @@ export default function OurTeam() {
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-4">
           {teamMembers.map((member) => (
             <article
               key={member.name}
               className={`group relative overflow-hidden rounded-2xl border bg-white/[0.03] p-3 backdrop-blur-xl transition duration-500 hover:-translate-y-1 ${
                 member.featured
-                  ? "border-secondary/45 shadow-[0_0_70px_rgba(255,122,0,0.16)] md:-mt-2"
+                  ? "border-secondary/45 scale-105 shadow-[0_0_70px_rgba(255,122,0,0.16)] md:-mt-2"
                   : "border-primary-1/18"
               }`}
             >
-              <div className="relative h-[360px] overflow-hidden rounded-xl bg-bg-surface md:h-[420px]">
+              <div className="relative max-sm:min-h-[300px] overflow-hidden rounded-xl bg-bg-surface md:min-h-[220px] lg:min-h-[320px]">
                 <Image
                   src={member.avatar}
-                  alt={`${member.name} portrait placeholder`}
+                  alt={`${member.plainName} portrait placeholder`}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover object-center transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
@@ -67,12 +76,13 @@ export default function OurTeam() {
 
               <div className="px-2 pb-2 pt-4">
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="display-h6 text-white transition duration-500 group-hover:text-secondary">
-                    {member.name}
-                  </h3>
+                  <h3
+                    className="display-h6 text-white transition duration-500 group-hover:text-secondary"
+                    dangerouslySetInnerHTML={{ __html: member.name }}
+                  />
                   <Link
                     href={member.linkedin}
-                    aria-label={`${member.name} LinkedIn profile`}
+                    aria-label={`${member.plainName} LinkedIn profile`}
                     className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-secondary/45 text-secondary transition hover:bg-secondary hover:text-black"
                   >
                     <TbBrandLinkedin className="h-5 w-5" />

@@ -6,6 +6,7 @@ import TextStrip from '@/components/Home/TextStrip'
 import Projects from '@/components/Home/Projects'
 import Testimonials from '@/components/Home/Testimonials'
 import CTAForm from '@/components/Home/CTAForm'
+import FAQs from '@/components/Home/FAQs'
 
 function page() {
   return (
@@ -17,6 +18,7 @@ function page() {
       <TextStrip />
       <Projects />
       <Testimonials />
+      <FAQs />
       <CTAForm />
     </main>
   )
