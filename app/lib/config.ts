@@ -1,7 +1,7 @@
 // app/lib/config.ts
 import type { Metadata } from "next";
 
-export const BASE_URL = "https://nexorafixes.com";
+export const BASE_URL = "https://www.nexorafixes.com";
 
 export const CALENDLY_URL =
   "https://calendly.com/nexorafixes/30min";
