@@ -23,7 +23,7 @@ const teamMembers = [
     plainName: "Muhammad Ahmad",
     role: "Leading Software Engineer",
     avatar: "/assets/person_3.png",
-    linkedin: "https://www.linkedin.com/in/muhammad-ahmad13/",
+    linkedin: "https://www.linkedin.com/in/ahmad-maqsood13/",
   },
   {
     name: "Abdul <br/> Raheem",
