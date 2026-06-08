@@ -10,12 +10,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 const services = [
+  "Digital Marketing",
   "Ads",
-  "Ecommerce Website",
-  "Software Development",
   "Shopify Store",
   "WordPress Website",
+  "SEO",
+  "Software Development",
   "Creatives Design",
+  "Branding",
+  "Book Keeping",
 ];
 
 const trustPoints = [
