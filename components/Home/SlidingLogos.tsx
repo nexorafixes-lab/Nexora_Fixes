@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { Marquee } from "@/components/ui/marquee";
 
-const clientLogos = Array.from({ length: 8 }, (_, index) => ({
+const clientLogos = Array.from({ length: 9 }, (_, index) => ({
   name: `Company ${index + 1}`,
   src: `/assets/companies/company_${index + 1}.png`,
 }));
