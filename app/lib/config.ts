@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const BASE_URL = "https://www.nexorafixes.com";
 
 export const CALENDLY_URL =
-  "https://calendly.com/nexorafixes/30min";
+  "https://calendly.com/nexorafixes/consultation-call";
 
 export const seoMetadata: Metadata = {
   metadataBase: new URL(BASE_URL),

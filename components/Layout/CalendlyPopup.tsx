@@ -75,12 +75,12 @@ export default function CalendlyPopup({ open, onClose }: CalendlyPopupProps) {
               minWidth: "100%",
             }}
             pageSettings={{
-              backgroundColor: "#0f0a00",
+              backgroundColor: "0f0a00",
               hideEventTypeDetails: false,
               hideLandingPageDetails: true,
               hideGdprBanner: true,
-              primaryColor: "#ffb000",
-              textColor: "#b8aaa1",
+              primaryColor: "ffb000",
+              textColor: "b8aaa1",
             }}
           />
         </div>

@@ -4,14 +4,14 @@ import { TbBrandLinkedin } from "react-icons/tb";
 
 const teamMembers = [
   {
-    name: "Huziafa <br/> Maqsood",
+    name: "Huziafa  Maqsood",
     plainName: "Huziafa Maqsood",
     role: "Leading Marketer & Strategist",
     avatar: "/assets/person_1.png",
     linkedin: "https://www.linkedin.com/in/saith-huzaifa-0361a52b4/",
   },
   {
-    name: "Shaheer <br/> Sheikh",
+    name: "Shaheer  Sheikh",
     plainName: "Shaheer Sheikh",
     role: "Founder & CEO Nexora Fixes",
     avatar: "/assets/person_2.png",
@@ -19,17 +19,24 @@ const teamMembers = [
     featured: true,
   },
   {
-    name: "Muhammad <br/> Ahmad",
+    name: "Muhammad Ahmad",
     plainName: "Muhammad Ahmad",
     role: "Leading Software Engineer",
     avatar: "/assets/person_3.png",
     linkedin: "https://www.linkedin.com/in/ahmad-maqsood13/",
   },
   {
-    name: "Abdul <br/> Raheem",
+    name: "Abdul  Raheem",
     plainName: "Abdul Raheem",
     role: "Visual Designer & Brand Artist",
     avatar: "/assets/person__4.png",
+    linkedin: "#",
+  },
+  {
+    name: "Danish  Ali",
+    plainName: "Danish Ali",
+    role: "Creative Media Editor",
+    avatar: "/assets/person_5.png",
     linkedin: "#",
   },
 ];
@@ -54,11 +61,11 @@ export default function OurTeam() {
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-4">
+        <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-6">
           {teamMembers.map((member) => (
             <article
               key={member.name}
-              className={`group relative overflow-hidden rounded-2xl border bg-white/[0.03] p-3 backdrop-blur-xl transition duration-500 hover:-translate-y-1 ${
+              className={`group md:w-[calc(33.333%-16px)] relative overflow-hidden rounded-2xl border bg-white/[0.03] p-3 backdrop-blur-xl transition duration-500 hover:-translate-y-1 ${
                 member.featured
                   ? "border-secondary/45 scale-105 shadow-[0_0_70px_rgba(255,122,0,0.16)] md:-mt-2"
                   : "border-primary-1/18"

@@ -15,7 +15,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import CalendlyPopup from "@/components/Layout/CalendlyPopup";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -43,11 +42,37 @@ const serviceItems = [
 
 export function CtaButton({
   className,
+  href,
   onClick,
 }: {
   className?: string;
+  href?: string;
   onClick?: () => void;
 }) {
+  const content = (
+    <>
+      <span className="absolute inset-0 bg-gradient-to-r from-tertiary via-primary-2 to-secondary" />
+      <span className="relative flex h-full w-full items-center justify-center rounded-lg bg-background px-6 text-sm font-medium text-white transition-colors hover:bg-transparent">
+        Book a Free Consultation
+      </span>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={cn(
+          "relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg p-[1.5px] transition-transform hover:scale-105 active:scale-95",
+          className
+        )}
+        onClick={onClick}
+      >
+        {content}
+      </Link>
+    );
+  }
+
   return (
     <button
       type="button"
@@ -57,10 +82,7 @@ export function CtaButton({
         className
       )}
     >
-      <span className="absolute inset-0 bg-gradient-to-r from-tertiary via-primary-2 to-secondary" />
-      <span className="relative flex h-full w-full items-center justify-center rounded-lg bg-background px-6 text-sm font-medium text-white transition-colors hover:bg-transparent">
-        Book a Free Consultation
-      </span>
+      {content}
     </button>
   );
 }
@@ -180,7 +202,6 @@ export default function Header() {
     pathname,
     open: false,
   });
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [servicesDropdownState, setServicesDropdownState] = useState({
     pathname,
     open: false,
@@ -228,7 +249,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:block">
-            <CtaButton onClick={() => setIsCalendlyOpen(true)} />
+            <CtaButton href="/#contact" />
           </div>
 
           <Sheet
@@ -332,10 +353,7 @@ export default function Header() {
 
               <div className="mt-6">
                 <SheetClose asChild>
-                  <CtaButton
-                    className="w-full"
-                    onClick={() => setIsCalendlyOpen(true)}
-                  />
+                  <CtaButton className="w-full" href="/#contact" />
                 </SheetClose>
               </div>
             </SheetContent>
@@ -343,10 +361,6 @@ export default function Header() {
         </div>
       </div>
 
-      <CalendlyPopup
-        open={isCalendlyOpen}
-        onClose={() => setIsCalendlyOpen(false)}
-      />
     </header>
   );
 }

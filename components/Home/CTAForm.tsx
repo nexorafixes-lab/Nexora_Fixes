@@ -199,7 +199,7 @@ export default function CTAForm() {
                 </div>
               </div>
 
-              <div className="mt-10 flex flex-1 flex-col justify-end gap-4 lg:mt-0">
+              <div className="mt-4 flex flex-1 flex-col justify-end gap-4 lg:mt-0">
                 <a
                   href="mailto:nexorafixes@gmail.com"
                   className="inline-flex w-fit items-center gap-2 border-b border-secondary/65 pb-1 text-sm font-medium text-white transition hover:text-secondary"
@@ -212,14 +212,14 @@ export default function CTAForm() {
                   <p className="max-w-[260px] display-p3 leading-7 text-white/78">
                     Always busy and want to book an exact time to call?
                   </p>
-                  <button
+                  {/* <button
                     type="button"
                     onClick={() => setIsCalendlyOpen(true)}
                     className="mt-3 inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-white/12 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-secondary hover:text-black"
                   >
                     <CalendarCheck className="h-4 w-4 diplay-p3!" />
                     Book a free call
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
