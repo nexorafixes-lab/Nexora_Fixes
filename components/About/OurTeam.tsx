@@ -36,7 +36,7 @@ const teamMembers = [
     name: "Danish  Ali",
     plainName: "Danish Ali",
     role: "Creative Media Editor",
-    avatar: "/assets/person_5.png",
+    avatar: "/assets/person__5.png",
     linkedin: "#",
   },
 ];
@@ -61,7 +61,7 @@ export default function OurTeam() {
           </p>
         </div>
 
-        <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-6">
+        <div className="mx-auto flex-col md:flex-row flex max-w-6xl md:flex-wrap justify-center gap-6">
           {teamMembers.map((member) => (
             <article
               key={member.name}
