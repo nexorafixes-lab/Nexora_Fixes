@@ -77,7 +77,7 @@ export default function OurTeam() {
                   alt={`${member.plainName} portrait placeholder`}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover object-center transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                  className="object-cover object-top md:object-center transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
                 />
               </div>
 
