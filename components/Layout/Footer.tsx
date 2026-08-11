@@ -1,3 +1,4 @@
+import { LocateFixed, LocateIcon, MapPin } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import {
@@ -27,7 +28,7 @@ const socialLinks = [
   },
   {
     label: "WhatsApp",
-    href: "https://wa.link/ji53ly",
+    href: "https://wa.link/y76s56",
     icon: TbBrandWhatsapp,
   },
   {
@@ -59,6 +60,12 @@ export default function Footer() {
           scroll-stopping creatives, conversion-focused websites, Shopify stores,
           WordPress builds, and custom web solutions.
         </p>
+       <div className="flex items-center justify-center gap-2 text-white/80">
+        <MapPin className="text-sm" size={14}/>
+         <p className="text-sm text-white/80">
+          158 Eton Road, IG1 2UJ, London, United Kingdom
+        </p>
+       </div>
 
         <nav
           aria-label="Footer navigation"
