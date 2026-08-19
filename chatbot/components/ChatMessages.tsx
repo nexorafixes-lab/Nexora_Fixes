@@ -40,7 +40,7 @@ export default function ChatMessages({
             <div
               className={`max-w-[82%] whitespace-pre-wrap rounded-2xl px-3.5 py-2.5 text-[12px] leading-[1.55] shadow-[0_6px_18px_rgba(17,17,17,0.05)] ${
                 message.role === "user"
-                  ? "rounded-br-[5px] bg-gradient-to-br from-primary-1 to-primary-2 text-black"
+                  ? "rounded-br-[5px] bg-gradient-to-br from-primary-2 to-[#ff9736] text-black"
                   : "rounded-bl-[5px] border border-white/10 bg-white/[0.055] text-white/82"
               }`}
             >
