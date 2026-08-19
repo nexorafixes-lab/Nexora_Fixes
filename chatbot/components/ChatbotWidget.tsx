@@ -3,7 +3,7 @@
 import { MessageCircle, Sparkles, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { chatbotConfig } from "../config";
-import { buildConfirmationSummary, getQuestionProgress, hasAllRequiredAnswers } from "../core/qualification";
+import { buildConfirmationSummary, getMissingQuestions, getQuestionProgress, hasAllRequiredAnswers } from "../core/qualification";
 import type { ChatMessage, ChatSessionStatus, LeadAnswers, LeadExtractionResponse, LeadSubmissionResponse, LocalChatState } from "../types";
 import ChatComposer from "./ChatComposer";
 import ChatHeader from "./ChatHeader";
@@ -24,6 +24,26 @@ function sourceData() {
 
 function modelMessages(messages: ChatMessage[]) {
   return messages.slice(-chatbotConfig.recentMessagesForModel).map(({ role, content }) => ({ role, content }));
+}
+
+function isSubmissionConfirmation(content: string) {
+  return /^(?:(?:yes|yeah|yep|sure|okay|ok)[,.!]?\s*)?(?:submit(?:\s+(?:it|inquiry|my inquiry))?|confirm(?:\s+(?:it|submission|my inquiry))?|send(?:\s+(?:it|my inquiry))?|go\s+(?:on|ahead)|proceed|do\s+it)(?:\s+(?:please|now))?[.!]?$/i.test(content)
+    || /^(?:i\s+)?(?:want|wanna|would like)\s+to\s+(?:confirm|submit|send)(?:\s+(?:it|my inquiry|the inquiry))?[.!]?$/i.test(content);
+}
+
+function pendingSubmissionMessage(answers: LeadAnswers) {
+  const missing = getMissingQuestions(answers);
+  if (!missing.length) return "Your details are ready, but they haven't been submitted yet. Submit when you're ready, or type any correction first.";
+  const labels = missing.map((question) => question.label.toLowerCase()).join(" and ");
+  return `I can't submit the inquiry just yet because I still need your ${labels}. ${missing[0].prompt}`;
+}
+
+function looksLikePrematureCompletion(content: string, answers: LeadAnswers, mode: "qualifying" | "editing" | "confirming" | "complete") {
+  if (mode === "complete") return false;
+  const claimsSubmission = /\b(?:inquiry|request|lead)\s+(?:has been|is now|was)\s+(?:submitted|confirmed|received|sent|routed)\b|\b(?:we(?:'ve| have)|the team has|our team has)\s+(?:received|got)\s+your\s+(?:inquiry|request|details)\b|\b(?:our team|we)\s+will\s+(?:contact|call|reach out|get back)\b|\bexpect\s+(?:a\s+)?follow-up\b/i.test(content);
+  const claimsDetailsComplete = getMissingQuestions(answers).length > 0
+    && /\b(?:all set|have everything|everything (?:is|looks) (?:complete|ready)|details are complete)\b/i.test(content);
+  return claimsSubmission || claimsDetailsComplete;
 }
 
 function isNewInquiryAttempt(content: string) {
@@ -50,7 +70,7 @@ export default function ChatbotWidget() {
 
   const progress = useMemo(() => getQuestionProgress(answers), [answers]);
   const quickActions = useMemo(() => {
-    if (status === "confirming") return ["Submit inquiry", "Edit details"];
+    if (status === "confirming") return ["Submit inquiry"];
     if (!messages.some((item) => item.role === "user")) return [...chatbotConfig.starterPrompts];
     return [];
   }, [messages, status]);
@@ -127,6 +147,10 @@ export default function ChatbotWidget() {
       setMessages((current) => current.map((item) => item.id === assistantId ? { ...item, content: item.content + chunk } : item));
     }
     if (!streamedText.current.trim()) throw new Error("The assistant returned an empty response.");
+    if (looksLikePrematureCompletion(streamedText.current, currentAnswers, mode)) {
+      const safeMessage = pendingSubmissionMessage(currentAnswers);
+      setMessages((current) => current.map((item) => item.id === assistantId ? { ...item, content: safeMessage } : item));
+    }
   }
 
   async function captureAnswers(conversation: ChatMessage[], currentAnswers: LeadAnswers) {
@@ -155,7 +179,7 @@ export default function ChatbotWidget() {
 
     setMessages((current) => [
       ...current,
-      message("assistant", `${introduction} Take a quick look:\n\n${buildConfirmationSummary(nextAnswers)}\n\nWould you like me to submit your inquiry?`),
+      message("assistant", `${introduction} Take a quick look:\n\n${buildConfirmationSummary(nextAnswers)}\n\nSubmit when you're ready, or type any correction you'd like me to make.`),
     ]);
   }
 
@@ -241,24 +265,13 @@ export default function ChatbotWidget() {
       return;
     }
 
-    if (status === "confirming" && /^(?:submit inquiry|submit|confirm(?: submission)?|yes,?\s+(?:submit|send|confirm)(?: it| my inquiry)?)$/i.test(content)) {
-      if (hasAllRequiredAnswers(answers)) {
+    if (isSubmissionConfirmation(content)) {
+      if (status === "confirming" && hasAllRequiredAnswers(answers)) {
         setMessages(conversation);
         await submitLead(conversation);
       } else {
-        setStatus("collecting");
-        await handleNaturalConversation(conversation, "qualifying", answers);
+        setMessages([...conversation, message("assistant", pendingSubmissionMessage(answers))]);
       }
-      return;
-    }
-
-    if (status === "confirming" && /^edit details$/i.test(content)) {
-      setStatus("editing");
-      setBusy(true);
-      setMessages(conversation);
-      try { await streamAssistant(conversation, answers, "editing"); }
-      catch (reason) { setError(reason instanceof Error ? reason.message : "Unable to respond."); }
-      finally { setBusy(false); }
       return;
     }
 
