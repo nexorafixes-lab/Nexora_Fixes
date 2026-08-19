@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import HomeIntro from "@/components/Home/HomeIntro";
 import Footer from "@/components/Layout/Footer";
 import Header from "@/components/Layout/Header";
+import ChatbotWidget from "@/chatbot/components/ChatbotWidget";
 
 const INTRO_STORAGE_KEY = "nexora-home-intro-shown-at";
 const INTRO_COOLDOWN_MS = 10 * 60 * 1000;
@@ -56,6 +57,8 @@ export default function SiteShell({ children }: { children: ReactNode }) {
     <>
       <Header />
       {children}
+            <ChatbotWidget />
+    
       <Footer />
     </>
   );
